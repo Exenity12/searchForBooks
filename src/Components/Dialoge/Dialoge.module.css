@@ -1,0 +1,13 @@
+.Dialoge {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+
+.Dialoges {
+    padding: 10px;
+}
+
+.Masseges {
+    padding: 10px;
+}

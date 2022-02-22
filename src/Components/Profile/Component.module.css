@@ -1,0 +1,15 @@
+.content {
+  grid-area: c;
+  background-color: grey;
+}
+
+.content img {
+  width: 60px;
+}
+
+
+.profile {
+  position: absolute;
+  left: 510px;
+  top: 65px;
+}
