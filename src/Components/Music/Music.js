@@ -1,13 +1,48 @@
 import React from 'react';
-import  s from './Music.module.css';
-import { NavLink } from 'react-router-dom';
 
 
 const Music = () => {
+    let state = {login: "", password: ""};
+
+
+
+    let onLoginChange = (e) => {
+        let body = e.target.value;
+        state.login += body;
+        console.log(state.login);
+    };
+
+    let onPasswordChange = (e) => {
+        let body = e.target.value;
+        state.password += body;
+        console.log(state.password);
+    };
+
+    let onNewMassageAlert = () => {
+        console.log(state.login, state.password);
+        let body = "";
+        state.value = body;
+    };
+
+     
+
     return (
-      <div>
-        Music
-      </div>
+        <div>
+            <div>
+                <div>Login</div>
+                <input
+                    onChange={onLoginChange}
+                    value={state.login}>
+                </input>
+                <div>Password</div>
+                <input
+                    value={state.password}
+                    onChange={onPasswordChange}>
+                </input>
+            </div>
+            <button onClick={onNewMassageAlert}>Register</button>
+        </div>
+        
     )
 };
 

@@ -1,53 +1,71 @@
-let rerenderEntireTree = () => {
-    console.log("123124");
-}
+import { dialogsReducer, massegesReducer, newMassegeBodyReducer } from "./Reducer";
 
-
-let State = {
-    MassengersPage: {
-        dialoges: [
-            {users: "Petya",  name: "Petya"},
-            {users: "Tolya",  name: "Tolya"},
-            {users: "Vika",  name: "Vika"},
-            {users: "Olga",  name: "Olga"},
-        ],
-        masseges: [
-            {masseges: "Hello world"},
-            {masseges: "Hello"},
-            {masseges: "world"},
-        ],
+let store = {
+    _State : {
+        MassengersPage: {
+            dialoges: [
+                {users: "Petya",  name: "Petya"},
+                {users: "Tolya",  name: "Tolya"},
+                {users: "Vika",  name: "Vika"},
+                {users: "Olga",  name: "Olga"},
+            ],
+            masseges: [
+                {masseges: "Hello world"},
+                {masseges: "Hello"},
+                {masseges: "world"}, 
+            ],
+            NewMassegeBody: "",
+        },
+        PostsPage: {
+            postNumber: [
+                {content: "my firts posts", like: "Like 32"},
+                {content: "Hi comunity", like: "Like 24"},
+                {content: "By", like: "Like 28"},
+            ],
+            NewPostText: "",
+        },
     },
-    PostsPage: {
-        postNumber: [
-            {content: "my firts posts", like: "Like 32"},
-            {content: "Hi comunity", like: "Like 24"},
-            {content: "By", like: "Like 28"},
-            {content: "By", like: "Like 28"},
-            {content: "By", like: "Like 28"},
-            {content: "By", like: "Like 28"},
-            {content: "By", like: "Like 28"},
-            {content: "By", like: "Like 28"},
-        ],
-        NewPostText: "",
+
+    _callSubscriber() {
+        console.log("123124");
     },
-}
+    
+    getState() {
+        return this._State;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
 
-export let addPost = () => {
-    let newPost = {
-        content: State.PostsPage.NewPostText,
-        like: 0,
-    };
-    State.PostsPage.postNumber.push(newPost);
-    rerenderEntireTree(State);
-}
+    dispatch( action ){
 
-export let updateNewPostText = (newText) => {
-    State.PostsPage.NewPostText = newText;
-    rerenderEntireTree(State);
-}
+        this._State.MassengersPage = dialogsReducer(this._State.MassengersPage, action);
+        this._State.NewMassegeBody = massegesReducer(this._State.NewMassegeBody, action);
+        this._State.PostsPage = newMassegeBodyReducer(this._State.PostsPage, action);
 
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;
-}
+        this._callSubscriber(this._State);
 
-export default State
+    },
+};
+
+
+
+
+export default store
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

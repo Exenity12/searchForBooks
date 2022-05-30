@@ -16,7 +16,7 @@ const Component = (props) => {
           Description
         </div>
       </div>
-      <Posts addPost={props.addPost} updateNewPostText={props.updateNewPostText} postNumber={props.postNumber} NewPostText={props.NewPostText}/>
+      <Posts dispatch={props.dispatch} postNumber={props.postNumber} NewPostText={props.NewPostText}/>
   </div>
   );
 };

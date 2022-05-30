@@ -18,12 +18,11 @@ const Add = (props) => {
       <div  className="app-wrapper-content"> 
         <Routes>
           <Route path="/Component/*" element= {<Component 
-            addPost={props.addPost} 
-            postNumber={props.appState.PostsPage.postNumber} 
-            NewPostText={props.appState.PostsPage.NewPostText}
-            updateNewPostText={props.updateNewPostText}/>}
+            dispatch={props.dispatch} 
+            postNumber={props.appState.PostsPage.postNumber}
+            NewPostText={props.appState.PostsPage.NewPostText}/>}
           />
-          <Route path="/Dialoge/*" element={<Dialoge dialoges={props.appState.MassengersPage.dialoges} masseges={props.appState.MassengersPage.masseges}/>}/>
+          <Route path="/Dialoge/*" element={<Dialoge NewMassegeBody={props.appState.MassengersPage.NewMassegeBody} dispatch={props.dispatch} dialoges={props.appState.MassengersPage.dialoges} masseges={props.appState.MassengersPage.masseges}/>}/>
           <Route path="/News/*" element= {<News />}/>
           <Route path="/Music/*" element={<Music />}/>
           <Route path="/Settings/*" element= {<Settings />}/>
