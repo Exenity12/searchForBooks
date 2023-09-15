@@ -1,14 +1,10 @@
 import { combineReducers, createStore } from "redux";
-import { dialogsReducer, massegesReducer, newMassegeBodyReducer } from "./Reducer";
+import { reducer } from "./Reducer";
 
 let reducers = combineReducers({
-    MassengersPage: dialogsReducer, 
-    masseges: massegesReducer, 
-    PostsPage: newMassegeBodyReducer,
+    allInformation: reducer,
 });
 
-
 let store = createStore(reducers);
-
 
 export default store; 

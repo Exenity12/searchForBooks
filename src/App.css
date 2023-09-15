@@ -1,54 +1,378 @@
-.App {
+.app {
+  font-family: 'Roboto', sans-serif;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  color: rgb(31, 26, 26);
+  background-color: rgb(201, 200, 200);
+  width: 100%;
   min-height: 100vh;
+}
+
+.loader {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(78, 78, 78);
+  z-index: 1;
+  opacity: 0.8;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  overflow: auto;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.loader__led {
+  position: absolute;
+  font-size: 30px;
+  left: 48%;
+  top: 28%;
+}
+
+
+
+
+.header {
+  width: 100%;
+}
+
+.header-title {
+  font-size: 44px;
+  font-weight: 400;
+  padding: 15px;
+}
+
+
+.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search__input {
+  width: 500px;
+  font-size: 18px;
+  border: 0;
+  margin: 2px 3px 10px;
+}
+
+.search__enter {
+  margin: 0;
+  text-decoration: none;
   color: white;
+  background-color: blue;
+  padding: 4px 15px;
+  border: 1px solid blue;
+  border-radius: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.search__enter-disable {
+  background-color: gray;
+  border: 1px solid gray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.selector {
+  width: 730px;
+  padding-bottom: 10px;
+  margin: 20px auto 30px auto;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+.selector__categories {
+  margin: 0 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.selector__categories-title {
+  font-weight: 400;
+  width: 120px;
+}
+
+.selector__categories-select {
+  height: 30px;
+  width: 200px;
+}
+
+.selector__sorting {
+  margin: 0 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.selector__sorting-title {
+  font-weight: 400;
+  width: 120px;
+}
+
+.selector__sorting-select {
+  height: 30px;
+  width: 200px;
+}
+
+
+
+
+
+.books {
+  margin-top: 30px;
+  width: 100%;
+  min-height: 400px;
+}
+
+.book-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1340px;
+  margin: 10px auto 10px auto;
+}
+
+.book {
+  border-radius: 3px;
+  text-decoration:none;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  margin: 10px;
+  background-color: rgb(230, 230, 230);
+  width: 300px;
+  height: 390px;
+}
+
+.book__wrap {
+  margin-top: 15px;
+  width: 300px;
+  height: 180px;
+}
+
+.book__wrap-image {
+  height: 90%;
+  width: 40%;
+}
+
+.book__description {
+  padding: 10px;
+  height: 170px;
+  overflow: hidden;
+}
+
+.book__description-category {
+  font-size: 15px;
+  font-weight: 100;
+  color: gray;
+  margin: 5px;
+}
+
+.book__description-authors {
+  display: block;
+  font-size: 19px;
+  font-weight: 400;
+  margin: 5px;
+}
+
+
+
+
+.book__button-load {
+  font-size: 16px;
+  background-color: blue;
+  padding: 16px 25px;
+  color: aliceblue;
+  border: 1px solid blue;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+.unique-book-item-wrap {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.unique-book__wrap {
+  margin-top: 35px;
+  min-width: 300px;
+  max-height: 360px;
+  background-color: rgb(230, 230, 230);
+}
+
+.unique-book__wrap-image {
+  margin: 50px;
+  width: 60%;
+}
+
+
+.unique-book__description {
+  margin-left: 30px;
+}
+
+.unique-book__description-title {
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.unique-book__description-category {
+  color: gray;
+}
+
+.unique-book__description-authors {
+  display: block;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.unique-book__description-other {
+  text-align: left;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.unique-book-item__return {
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: blue;
+  padding: 8px 25px;
+  border: 1px solid blue;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1400px) {
+  .book-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 990px;
+    margin: 10px auto 10px auto;
   }
-  to {
-    transform: rotate(360deg);
+
+}
+
+@media only screen and (max-width: 1050px) {
+  .book-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 680px;
+    margin: 10px auto 10px auto;
   }
+
 }
 
-.app-wrapper {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
-  grid-template-rows: 60px 1fr;
-  grid-template-areas: "n h" "n c";
-  width: 1200px;
-  margin: 0 auto;
+@media only screen and (max-width: 800px) {
+  .book-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    margin: 10px auto 10px auto;
+  }
+
+  .selector {
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    margin: 20px auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0px solid rgb(94, 94, 94);
+  }
+
+  .selector__categories {
+    margin-bottom: 10px;
+  }
+
+  .header-title {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 10px;
+  }
+
+  .unique-book-item-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unique-book__wrap-image {
+    margin: 20px auto 20px auto;
+    width: 150px;
+  }
+
 }
 
 
-.app-wrapper-content {
-  grid-area: c;
-  background-color: grey;
+@media only screen and (max-width: 650px) {
+
+  .search__input {
+    width: 300px;
+    font-size: 25px;
+    border: 0;
+    margin: 2px 3px 10px;
+  }
+
+  .book__description-category {
+    font-size: 21px;
+    font-weight: 100;
+    color: gray;
+    margin: 5px;
+  }
+  
+  .book__description-authors {
+    font-size: 28px;
+    font-weight: 400;
+    margin: 5px;
+  }
+  
+  .book__button-load {
+    font-size: 24px;
+    background-color: blue;
+    padding: 16px 25px;
+    color: aliceblue;
+    border: 1px solid blue;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+  
+
 }
 
+@media only screen and (max-width: 400px) {
+
+  .search__input {
+    width: 200px;
+    font-size: 18px;
+    border: 0;
+    margin: 2px 3px 10px;
+  }
+
+  .selector__sorting-title {
+    font-weight: 400;
+    width: 100px;
+    font-size: 14px;
+  }
+
+  .selector__categories-title {
+    font-weight: 400;
+    width: 100px;
+    font-size: 14px;
+  }
+
+}
