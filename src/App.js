@@ -31,7 +31,7 @@ const App = (props) => {
   };
 
   const getUrl = (value) => {
-    if(value == "first") {
+    if(value === "first") {
       return `${url}${search}${category === "all" ? "" : "+subject:" + category}&startIndex=0&maxResults=30&orderBy=${sorting}`
     };
     if(value !== "first") {
@@ -86,13 +86,9 @@ const App = (props) => {
 
 
   return (
-    <div className="app">
+    <div className={Boolean(isLoaded) ? 'loader' : "app"}>
 
-      {Boolean(isLoaded) ? 
-        <div className='loader'>
-          <div className='loader__led'>Loadind...</div>
-        </div>
-        : null}
+      <div className={Boolean(isLoaded) ? 'loader-led' : "loader-none"}>Loadind...</div>
 
       <div className='header'>
         <h3 className='header-title'>Search for books</h3>
