@@ -23,96 +23,15 @@
 
 .loader-led {
   position: absolute;
-  top: 47%;
-  left: 47%;
+  top: 40%;
+  left: 48%;
   z-index: 2;
   font-size: 24px;
+  opacity: 0.9;
 }
 
 .loader-none {
   display: none;
-}
-
-
-
-.header {
-  width: 100%;
-}
-
-.header-title {
-  font-size: 44px;
-  font-weight: 400;
-  padding: 15px;
-}
-
-
-.search {
-  display: flex;
-  justify-content: center;
-}
-
-.search__input {
-  width: 500px;
-  font-size: 18px;
-  border: 0;
-  margin: 2px 3px 10px;
-}
-
-.search__enter {
-  margin: 0;
-  text-decoration: none;
-  color: white;
-  background-color: blue;
-  padding: 4px 15px;
-  border: 1px solid blue;
-  border-radius: 3px;
-}
-
-.search__enter-disable {
-  background-color: gray;
-  border: 1px solid gray;
-}
-
-
-.selector {
-  width: 730px;
-  padding-bottom: 10px;
-  margin: 20px auto 30px auto;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 1px solid rgb(94, 94, 94);
-}
-
-.selector__categories {
-  margin: 0 20px 0 20px;
-  display: flex;
-  flex-direction: row;
-}
-
-.selector__categories-title {
-  font-weight: 400;
-  width: 120px;
-}
-
-.selector__categories-select {
-  height: 30px;
-  width: 200px;
-}
-
-.selector__sorting {
-  margin: 0 20px 0 20px;
-  display: flex;
-  flex-direction: row;
-}
-
-.selector__sorting-title {
-  font-weight: 400;
-  width: 120px;
-}
-
-.selector__sorting-select {
-  height: 30px;
-  width: 200px;
 }
 
 
@@ -250,15 +169,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 1400px) {
   .book-wrap {
     display: flex;
@@ -287,26 +197,6 @@
     margin: 10px auto 10px auto;
   }
 
-  .selector {
-    align-items: center;
-    width: 100%;
-    padding-bottom: 10px;
-    margin: 20px auto 30px auto;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 0px solid rgb(94, 94, 94);
-  }
-
-  .selector__categories {
-    margin-bottom: 10px;
-  }
-
-  .header-title {
-    font-size: 24px;
-    font-weight: 400;
-    padding: 10px;
-  }
-
   .unique-book-item-wrap {
     display: flex;
     flex-direction: column;
@@ -321,13 +211,6 @@
 
 
 @media only screen and (max-width: 650px) {
-
-  .search__input {
-    width: 300px;
-    font-size: 25px;
-    border: 0;
-    margin: 2px 3px 10px;
-  }
 
   .book__description-category {
     font-size: 21px;
@@ -352,28 +235,5 @@
     margin-bottom: 20px;
   }
   
-
-}
-
-@media only screen and (max-width: 400px) {
-
-  .search__input {
-    width: 200px;
-    font-size: 18px;
-    border: 0;
-    margin: 2px 3px 10px;
-  }
-
-  .selector__sorting-title {
-    font-weight: 400;
-    width: 100px;
-    font-size: 14px;
-  }
-
-  .selector__categories-title {
-    font-weight: 400;
-    width: 100px;
-    font-size: 14px;
-  }
 
 }
