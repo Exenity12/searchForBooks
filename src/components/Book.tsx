@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom';
-import  './App.css';
 
+import  '../App.css';
 
-const url = 'https://www.googleapis.com/books/v1/volumes/'
+interface bookProps {
+  getState: object;
+  setIsLoaded: any;
+};
 
-const Book = (props) => {
-  const [activeBook, setActiveBook] = useState([]);
-  const [isReady, setIsReady] = useState(false);
+const url: string = 'https://www.googleapis.com/books/v1/volumes/';
 
-  const location = useLocation();
-  const thisLocation = location.pathname.substring(1, location.length)
+const Book = (props: bookProps) => {
+  const [activeBook, setActiveBook]: any = useState([]);
+  const [isReady, setIsReady]: any = useState(false);
+
+  const location: any = useLocation();
+  const thisLocation: string = location.pathname.substring(1, location.length)
 
   useEffect(() => {
     getThisBook(thisLocation);
   }, [])
 
 
-  async function getThisBook(thisLocation) {
+  async function getThisBook(thisLocation: string) {
     try {
       props.setIsLoaded(true);
       let promise = await fetch(url + thisLocation);
+      console.log("124")
       let book = await promise.json();
       console.log(book)
       setActiveBook(book)
@@ -41,7 +47,7 @@ const Book = (props) => {
             <NavLink to="/" className="unique-book-item__return">Back</NavLink>
             
             <div className='unique-book__wrap'>
-              <img src={Boolean(activeBook.volumeInfo.imageLinks) ? activeBook.volumeInfo.imageLinks.thumbnail : null} className='unique-book__wrap-image'></img>
+              <img alt="load" src={Boolean(activeBook.volumeInfo.imageLinks) ? activeBook.volumeInfo.imageLinks.thumbnail : null} className='unique-book__wrap-image'></img>
             </div>
           </div>
 
@@ -63,6 +69,7 @@ const Book = (props) => {
               dangerouslySetInnerHTML={{__html: activeBook.volumeInfo.description}}>
             </div>
           </div>
+
         </div>
         : null}
     </div>

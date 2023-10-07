@@ -2,7 +2,7 @@ import  './components.css';
 
 const arrayOfSelector: Array<string> = ["all", "art", "biography", "computers", "history", "medical", "poetry"];
 
-const Selector = (props: any): any => {
+const Selector = (props: any): JSX.Element => {
   return (
     <div className='selector'>
       <div className='selector__categories'>

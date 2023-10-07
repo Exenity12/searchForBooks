@@ -1,37 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import  './App.css';
-import Books from './Books';
-import Book from './Book';
+import Books from './components/Books';
+import Book from './components/Book';
 import Header from './components/Header';
 import Selector from './components/Selector';
 import Search from './components/Search';
 
 const URL = 'https://www.googleapis.com/books/v1/volumes?q='
 
+interface eventParam {
+  target: {
+    value: string;
+  };
+};
+
+interface eventEffect {
+  key: string;
+};
+
 const App = (props: any) => {
-  const [search, setSearch]: any = useState('');
-  const [category, setCategory]: any = useState('all');
-  const [sorting, setSorting]: any = useState('relevance');
-  const [isLoaded, setIsLoaded]: any = useState(false);
-  const [allItems, setAllItems]: any = useState(null);
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState('all');
+  const [sorting, setSorting] = useState('relevance');
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [allItems, setAllItems] = useState(null);
 
-
-  const changeSorting = (event: any) => {
+  const changeSorting = (event: eventParam) => {
     setSorting(event.target.value);
   };
 
-  const changeCategory = (event: any) => {
+  const changeCategory = (event: eventParam) => {
     setCategory(event.target.value);
   };
 
-  const enterText = (event: any) => {
+  const enterText = (event: eventParam) => {
     let user_input = event.target.value;
     let input = user_input.replaceAll(" ", "+");
     setSearch(input);
   };
 
-  const getUrl = (isNewBooks: any) => {
+  const getUrl = (isNewBooks: boolean) => {
     if(isNewBooks) {
       return `${URL}${search}${category === "all" ? "" : "+subject:" + category}&startIndex=0&maxResults=30&orderBy=${sorting}`;
     } else {
@@ -52,6 +61,7 @@ const App = (props: any) => {
         body: books.items || [],
       });
       setIsLoaded(false);
+      console.log(books)
     } catch(err) {
       console.log(err);
     };
@@ -76,7 +86,7 @@ const App = (props: any) => {
   };
 
   useEffect(() => {
-    const handleClick = (event: any) => {
+    const handleClick = (event: eventEffect) => {
       if(event.key === "Enter") {
         getBooks();
       };
