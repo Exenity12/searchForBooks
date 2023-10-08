@@ -61,7 +61,6 @@ const App = (props: any) => {
         body: books.items || [],
       });
       setIsLoaded(false);
-      console.log(books)
     } catch(err) {
       console.log(err);
     };

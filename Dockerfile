@@ -1,16 +1,7 @@
 FROM node:latest
-
-COPY . .
-
-WORKDIR .
-
-COPY package.json package-lock.json /app/
-
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-
-RUN npm run build
-
-CMD ["npm", "run", "start"]
-
-
-
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
